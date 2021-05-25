@@ -1,14 +1,18 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/24/21, 3:11 AM
+ * Last Modified on 5/25/21, 1:38 AM
  * Copyright (c) 2021. All rights reserved.
  */
 
 package io.github.tanu31195.ipldashboard.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.time.LocalDate;
 
+@Entity
 public class Match {
+    @Id
     private long id;
     private String city;
     private LocalDate date;
