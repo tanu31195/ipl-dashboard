@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/25/21, 1:20 AM
+ * Last Modified on 5/26/21, 4:54 PM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -29,6 +29,7 @@ public class MatchDataProcessor implements ItemProcessor<MatchInput, Match> {
         match.setVenue(matchInput.getVenue());
         match.setTossWinner(matchInput.getToss_winner());
         match.setTossDecision(matchInput.getToss_decision());
+        match.setMatchWinner(matchInput.getWinner());
         match.setResult(matchInput.getResult());
         match.setResultMargin(matchInput.getResult_margin());
         match.setUmpire1(matchInput.getUmpire1());
