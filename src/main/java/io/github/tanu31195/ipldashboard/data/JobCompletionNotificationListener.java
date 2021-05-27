@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/26/21, 5:20 PM
+ * Last Modified on 5/27/21, 12:57 PM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -13,13 +13,11 @@ import org.springframework.batch.core.BatchStatus;
 import org.springframework.batch.core.JobExecution;
 import org.springframework.batch.core.listener.JobExecutionListenerSupport;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @Component
@@ -46,7 +44,6 @@ public class JobCompletionNotificationListener extends JobExecutionListenerSuppo
 
             Map<String, Team> teamData = new HashMap<>();
 
-//            List<Object[]> results = ;
             em.createQuery("select m.team1, count(*) from Match m group by m.team1", Object[].class)
                     .getResultList()
                     .stream()
