@@ -1,17 +1,22 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/27/21, 12:57 PM
+ * Last Modified on 5/27/21, 11:45 PM
  * Copyright (c) 2021. All rights reserved.
  */
 
 package io.github.tanu31195.ipldashboard.controller;
 
+import io.github.tanu31195.ipldashboard.model.Match;
 import io.github.tanu31195.ipldashboard.model.Team;
 import io.github.tanu31195.ipldashboard.repository.MatchRepository;
 import io.github.tanu31195.ipldashboard.repository.TeamRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.time.LocalDate;
+import java.util.List;
 
 @RestController
 public class TeamController {
@@ -30,5 +35,17 @@ public class TeamController {
         team.setMatches(this.matchRepository.findLatestMatchesByTeam(teamName, 4));
 
         return team;
+    }
+
+    @GetMapping("/team/{teamName}/matches")
+    public List<Match> getMatchesForTeam(@PathVariable String teamName, @RequestParam int year) {
+        LocalDate startDate = LocalDate.of(year, 1, 1);
+        LocalDate endDate = LocalDate.of(year + 1, 1, 1);
+
+//        return this.matchRepository.getByTeam1AndDateBetweenOrTeam2AndDateBetweenOrderByDateDesc(
+//                teamName, startDate, endDate,
+//                teamName, startDate, endDate
+//        );
+        return this.matchRepository.getMatchesByTeamBetweenDates(teamName, startDate, endDate);
     }
 }
