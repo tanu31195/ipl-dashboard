@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/28/21, 6:56 PM
+ * Last Modified on 5/29/21, 2:20 AM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -31,7 +31,7 @@ export const TeamPage = () => {
         <div className="TeamPage">
             <h1>{team.teamName}</h1>
             <MatchDetailCard match={team.matches[0]} teamName={team.teamName}/>
-            {team.matches.slice(1).map(match => <MatchSummaryCard match={match} teamName={team.teamName}/>)}
+            {team.matches.slice(1).map(match => <MatchSummaryCard key={match.id} match={match} teamName={team.teamName}/>)}
         </div>
     );
 }
