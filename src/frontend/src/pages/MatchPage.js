@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/29/21, 2:18 AM
+ * Last Modified on 5/30/21, 12:00 AM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -15,15 +15,16 @@ export const MatchPage = () => {
     useEffect(
         () => {
             const fetchMatches = async () => {
-                console.log(year);
                 const response = await fetch(`http://localhost:8081/team/${teamName}/matches?year=${year}`);
                 const data = await response.json();
                 setMatches(data);
             };
             fetchMatches();
-        },[]
+        }, [teamName,year]
     );
-    if (!matches) return null;
+    if (matches.length === 0) {
+        return <h1>No matches found for {teamName}</h1>
+    }
     return (
         <div className="MatchPage">
             <h1>Match Page</h1>
