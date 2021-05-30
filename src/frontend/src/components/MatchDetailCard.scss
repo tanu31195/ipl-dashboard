@@ -1,0 +1,23 @@
+/*!
+ * Created by Tanushka Bandara (https://tanu31195.github.io)
+ * Last Modified on 5/30/21, 11:13 PM
+ * Copyright (c) 2021. All rights reserved.
+ */
+
+.MatchDetailCard {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 10px;
+  margin-bottom: 20px;
+
+  .match-date, .match-venue, .match-result {
+    margin-top: 10px;
+  }
+
+  .match-additional-details {
+    text-align: right;
+    & > p {
+      margin-bottom: 20px;
+    }
+  }
+}

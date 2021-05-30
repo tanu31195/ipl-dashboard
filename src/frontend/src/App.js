@@ -1,10 +1,10 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/28/21, 7:16 PM
+ * Last Modified on 5/30/21, 12:10 AM
  * Copyright (c) 2021. All rights reserved.
  */
 
-import "./App.css";
+import "./App.scss";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {TeamPage} from "./pages/TeamPage";
 import {MatchPage} from "./pages/MatchPage";

@@ -1,0 +1,32 @@
+/*!
+ * Created by Tanushka Bandara (https://tanu31195.github.io)
+ * Last Modified on 5/30/21, 11:14 PM
+ * Copyright (c) 2021. All rights reserved.
+ */
+
+.TeamPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+
+  .team-name-section {
+    grid-column: span 3;
+    justify-self: start; //horizontal
+    align-self: end; //vertical
+  }
+
+  .team-name {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
+
+  .win-loss-section {
+    justify-self: center;
+  }
+
+  .match-detail-section {
+    grid-column: span 4;
+  }
+}
