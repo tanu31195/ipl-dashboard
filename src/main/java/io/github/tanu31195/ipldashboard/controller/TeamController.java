@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/28/21, 5:54 PM
+ * Last Modified on 5/31/21, 11:42 PM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -29,6 +29,11 @@ public class TeamController {
     public TeamController(TeamRepository teamRepository, MatchRepository matchRepository) {
         this.teamRepository = teamRepository;
         this.matchRepository = matchRepository;
+    }
+
+    @GetMapping("/teams")
+    public Iterable<Team> getTeams() {
+        return this.teamRepository.findAll();
     }
 
     @GetMapping("/team/{teamName}")
