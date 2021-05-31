@@ -1,11 +1,12 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/31/21, 9:19 PM
+ * Last Modified on 5/31/21, 10:50 PM
  * Copyright (c) 2021. All rights reserved.
  */
 
 import {React, useState, useEffect} from "react";
-import {useParams} from "react-router-dom"
+import {Link, useParams} from "react-router-dom"
+import {PieChart} from "react-minimal-pie-chart";
 import {MatchDetailCard} from "../components/MatchDetailCard";
 import {MatchSummaryCard} from "../components/MatchSummaryCard";
 
@@ -36,6 +37,12 @@ export const TeamPage = () => {
             </div>
             <div className="win-loss-section">
                 Wins/Losses
+                <PieChart
+                    data={[
+                        {title: 'Losses', value: team.totalMatches - team.totalWins, color: '#EA030E'},
+                        {title: 'Wins', value: team.totalWins, color: '#A9CF54'},
+                    ]}
+                />
             </div>
 
             <div className="match-detail-section">
@@ -45,7 +52,7 @@ export const TeamPage = () => {
 
             {team.matches.slice(1).map(match => <MatchSummaryCard key={match.id} match={match} teamName={team.teamName}/>)}
             <div className="more-link">
-                <a href="#">More...</a>
+                <Link to={`/teams/${teamName}/matches/${process.env.REACT_APP_DATA_END_YEAR}`}> More... </Link>
             </div>
         </div>
     );
