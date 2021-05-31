@@ -1,0 +1,19 @@
+/*!
+ * Created by Tanushka Bandara (https://tanu31195.github.io)
+ * Last Modified on 5/31/21, 10:39 PM
+ * Copyright (c) 2021. All rights reserved.
+ */
+
+.MatchPage {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-column-gap: 20px;
+
+  .year-selector {
+    justify-self: center;
+  }
+
+  .page-heading {
+    margin: 20px auto;
+  }
+}
