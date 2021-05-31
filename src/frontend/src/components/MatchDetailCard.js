@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/30/21, 11:09 PM
+ * Last Modified on 5/30/21, 11:27 PM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -13,8 +13,9 @@ export const MatchDetailCard = ({match, teamName}) => {
     if (!match) return null;
     const opponentTeam = match.team1 === teamName ? match.team2 : match.team1;
     const opponentTeamRoute = `/teams/${opponentTeam}`;
+    const isMatchWon = teamName === match.matchWinner;
     return (
-        <div className="MatchDetailCard">
+        <div className={isMatchWon ? "MatchDetailCard won-card" : "MatchDetailCard lost-card"}>
             <div className="match-details">
                 <span className="match-vs">vs</span>
                 <h1><Link to={opponentTeamRoute}>{opponentTeam} </Link></h1>
