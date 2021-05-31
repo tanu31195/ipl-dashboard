@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/31/21, 10:31 PM
+ * Last Modified on 6/1/21, 12:32 AM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -21,7 +21,7 @@ export const YearSelector = ({teamName}) => {
     return (
         <ol className="YearSelector">
         {years.map(year => (
-            <li>
+            <li key={year}>
                 <Link to={`/teams/${teamName}/matches/${year}`}> {year} </Link>
             </li>)
         )}
