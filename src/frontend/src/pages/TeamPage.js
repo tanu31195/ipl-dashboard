@@ -1,6 +1,6 @@
 /*
  * Created by Tanushka Bandara (https://tanu31195.github.io)
- * Last Modified on 5/31/21, 10:50 PM
+ * Last Modified on 6/2/21, 11:58 PM
  * Copyright (c) 2021. All rights reserved.
  */
 
@@ -19,7 +19,7 @@ export const TeamPage = () => {
     useEffect(
         () => {
             const fetchMatches = async () => {
-                const response = await fetch(`http://localhost:8081/team/${teamName}`);
+                const response = await fetch(`${process.env.REACT_APP_API_ROOT_URL}/team/${teamName}`);
                 const data = await response.json();
                 setTeam(data);
             };
